@@ -48,7 +48,7 @@ export const GlobalStyles = createGlobalStyle`
 
     h1 {
         font-family: 'Poppins', sans-serif;
-        font-weight: 600:
+        font-weight: 600;
     }
 
     a {
@@ -58,8 +58,14 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 500;
     }
 
+    p, span {
+        font-family: 'Roboto', sans-serif;
+    }
+
     button, input {
         font-family: 'Poppins', sans-serif;
+        border: 0;
+        border-radius: 7px;
     }
 
     button {
@@ -68,7 +74,8 @@ export const GlobalStyles = createGlobalStyle`
         cursor: pointer;
 
         font-weight: 600;
-        border: 0;
+        box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.20);
+        
     }
 
 `
