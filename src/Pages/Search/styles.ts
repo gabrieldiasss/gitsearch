@@ -91,7 +91,7 @@ export const Img = styled.div`
 
 export const CardInfos = styled.div`
     display: flex;
-    gap: 16px;
+    flex-direction: column;
 
     a {
         font-size: 1.2rem;
@@ -100,16 +100,23 @@ export const CardInfos = styled.div`
     a:hover {
         text-decoration: underline;
     }
-
-    p {
-        margin-top: 4px;
-    }
-   
+    
     span {
         color: var(--username);
         font-weight: 500;
+        margin-left: 16px;
+    }
+
+    p {
+        margin-top: 8px;
     }
     
+`
+
+export const Warning = styled.p`
+    font-size: 1.4rem;
+    color: var(--username);
+    font-family: 'Poppins', sans-serif;
 `
 
 export const SearchIcon = styled(Search)`

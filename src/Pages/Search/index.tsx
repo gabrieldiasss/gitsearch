@@ -1,6 +1,57 @@
-import { Container, Content, Header, Input, Cards, Card, Carditem, Img, CardInfos, SearchIcon } from './styles'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+import { 
+    Container,
+    Content,
+    Header,
+    Input,
+    Cards,
+    Card,
+    Carditem,
+    Img,
+    CardInfos,
+    SearchIcon,
+    Warning
+} from './styles'
+
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
+interface User {
+    id: number;
+    login: string;
+    avatar_url: string;
+    name: string;
+    bio: string;
+}
 
 export default function Search() {
+
+    const [users, setUsers] = useState<User>({} as User)
+    const [usersSearch, setUsersSearch] = useState(false)
+
+    const [inputSearch, setInputSearch] = useState("")
+
+    async function Search(search: string) {
+
+        try {
+            const response = await axios.get(`https://api.github.com/users/${search}`)
+            setUsers(response.data)
+            setUsersSearch(true)
+
+        } catch(err) {
+            toast.error("Usuário não encontrado")
+        }
+        
+    }
+
+    useEffect(() => {
+        
+        if(inputSearch === "") {
+            setUsersSearch(false)
+        }
+
+    }, [inputSearch])
 
     return (
 
@@ -12,60 +63,49 @@ export default function Search() {
                     <div>
                         <Input>
                             <SearchIcon />
-                            <input type="text" placeholder='Pesquise por algum usuário' />
+                            <input
+                                type="text"
+                                placeholder='Pesquise por algum usuário'
+                                value={inputSearch}
+                                onChange={(e) => setInputSearch(e.target.value)}
+                            />
                         </Input>
 
-                        <button type="button" >Buscar</button>
+                        <button type="button" onClick={() => Search(inputSearch)} >Buscar</button>
                     </div>
                 </Header>
 
                 <Cards>
-                    <Card>
-                        <Carditem>
-                            <Img>
-                                <img src="https://pbs.twimg.com/profile_images/1473744566088081422/N2IxaB03_400x400.jpg" alt="" />
-                            </Img>
 
-                            <CardInfos>
-                                <div>
-                                    <a href="#" >Diego Ferndandes</a>
-                                    <p>CTO at @Rocketseat</p>
-                                </div>
+                    {usersSearch && (
+                        <Card>
+                            <Carditem>
+                                <Img>
+                                    <img src={users.avatar_url} alt="" />
+                                </Img>
 
+                                <CardInfos>
+                                    <div>
+                                        <a href="#">{users.name}</a>
+                                        <span>{users.login}</span>
+                                        
+                                    </div>
 
-                                <div>
-                                    <span>diego3g</span>
-                                </div>
-                            </CardInfos>
+                                    <div>
+                                        <p>{users.bio}</p>
+                                    </div>
+                                    
+                                </CardInfos>
 
+                            </Carditem>
+                        </Card>
+                    )}
 
-                        </Carditem>
-                    </Card>
+                    {inputSearch === "" && (
+                        <Warning>Pesquise por algum usuário</Warning>
+                    )}
 
-                    <Card>
-                        <Carditem>
-                            <Img>
-                                <img src="https://pbs.twimg.com/profile_images/1473744566088081422/N2IxaB03_400x400.jpg" alt="" />
-                            </Img>
-
-                            <CardInfos>
-                                <div>
-                                    <a href="#" >Diego Ferndandes</a>
-                                    <p>CTO at @Rocketseat</p>
-                                </div>
-
-
-                                <div>
-                                    <span>diego3g</span>
-                                </div>
-                            </CardInfos>
-                        </Carditem>
-                    </Card>
-
-                    
                 </Cards>
-
-
             </Content>
         </Container>
     )
