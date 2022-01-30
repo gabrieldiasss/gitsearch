@@ -58,11 +58,15 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 500;
     }
 
-    p, span {
+    a:hover {
+        text-decoration: underline;
+    }
+
+    strong, p, span {
         font-family: 'Roboto', sans-serif;
     }
 
-    button, input {
+    button, input, select {
         font-family: 'Poppins', sans-serif;
         border: 0;
         border-radius: 7px;
@@ -75,7 +79,6 @@ export const GlobalStyles = createGlobalStyle`
 
         font-weight: 600;
         box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.20);
-        
     }
 
 `

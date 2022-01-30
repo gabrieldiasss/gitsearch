@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 import { Search } from '@styled-icons/boxicons-regular/Search'
 
-export const Container = styled.main`
-
+export const Container = styled.article`
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto 0;
@@ -54,7 +53,7 @@ export const Input = styled.div`
     }
 `
 
-export const Cards = styled.article `
+export const Cards = styled.div `
     margin-top: 3rem;
 `
 

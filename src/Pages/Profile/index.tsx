@@ -1,10 +1,20 @@
-export default function Profile () {
+import UserInfos from '../../components/UserInfos'
+import UserRepos from '../../components/UserRepos'
 
+import { 
+    Container,
+    Content
+} from './styles'
+
+export default function Profile() {
     return (
 
-        <>
-            <h1>Page PROFILE</h1>
-        </>
+        <Container>
+            <Content>
+                <UserInfos />
+                <UserRepos />
+            </Content>
+        </Container>
     )
 }
   

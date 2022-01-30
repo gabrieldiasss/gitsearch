@@ -21,4 +21,8 @@ export const Content = styled.div`
         height: auto;
     }
 
+    ul {
+        display: flex;
+    }
+
 `
