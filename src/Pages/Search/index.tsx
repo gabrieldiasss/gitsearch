@@ -16,18 +16,13 @@ import {
 
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-
-interface User {
-    id: number;
-    login: string;
-    avatar_url: string;
-    name: string;
-    bio: string;
-}
+import { useGitUser } from '../../hooks/useGitUser';
+import { Link } from 'react-router-dom';
 
 export default function Search() {
 
-    const [users, setUsers] = useState<User>({} as User)
+    const { users, setUsers } = useGitUser()
+
     const [usersSearch, setUsersSearch] = useState(false)
 
     const [inputSearch, setInputSearch] = useState("")
@@ -86,9 +81,8 @@ export default function Search() {
 
                                 <CardInfos>
                                     <div>
-                                        <a href="#">{users.name}</a>
+                                        <Link to={`profile/${users.login}`}>{users.name}</Link>
                                         <span>{users.login}</span>
-                                        
                                     </div>
 
                                     <div>

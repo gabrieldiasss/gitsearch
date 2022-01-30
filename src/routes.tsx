@@ -10,8 +10,8 @@ export default function RoutesPages() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Search />} />
-                <Route path="/inforepos" element={<InfoRepos />} />
-                <Route path="profile" element={<Profile />} />
+                <Route path="inforepos" element={<InfoRepos />} />
+                <Route path="profile/:login" element={<Profile />} />
             </Routes>
         </BrowserRouter>
     )

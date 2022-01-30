@@ -62,7 +62,7 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: underline;
     }
 
-    strong, p, span {
+    body, strong, p, span {
         font-family: 'Roboto', sans-serif;
     }
 
