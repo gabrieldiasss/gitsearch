@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 import { Search } from '@styled-icons/boxicons-regular/Search'
 
-export const Container = styled.article`
+export const Container = styled.main`
     width: 90%;
     max-width: 1200px;
     margin: 2rem auto 0;

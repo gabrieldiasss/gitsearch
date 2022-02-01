@@ -7,8 +7,7 @@ import { Business } from '@styled-icons/boxicons-solid/Business'
 import { PeopleFill } from '@styled-icons/bootstrap/PeopleFill'
 import { Twitter } from '@styled-icons/boxicons-logos/Twitter'
 
-
-export const Container = styled.section`
+export const Container = styled.aside`
     background-color: #fff;
     
     padding: 2rem 4rem;

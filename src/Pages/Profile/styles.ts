@@ -6,10 +6,10 @@ export const Container = styled.div`
 
 export const Content = styled.div` 
 
-gap: 48px;
+    gap: 48px;
     display: flex;
 
-    max-width: 1400px;
+    max-width: 1200px;
     width: 90%;
     margin: 0 auto;
 `

@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import InfoRepos from './Pages/InfoRepos'
 import Search from './Pages/Search'
 import Profile from './Pages/Profile'
+import Followers from './Pages/Followers'
 
 export default function RoutesPages() {
 
@@ -12,6 +13,7 @@ export default function RoutesPages() {
                 <Route path="/" element={<Search />} />
                 <Route path="inforepos" element={<InfoRepos />} />
                 <Route path="profile/:login" element={<Profile />} />
+                <Route path="profile/followers" element={<Followers />} />
             </Routes>
         </BrowserRouter>
     )
