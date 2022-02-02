@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { InfosUser } from '../../components/UserInfos'
 
-import { Container, Content, FollowersCard, Follower, PlaceIcon, CompanyIcon } from './styles'
+import { Container, Content, FollowingCard, Followingg, PlaceIcon, CompanyIcon } from './styles'
 
 interface Followers {
     id: string;
@@ -13,17 +13,17 @@ interface Followers {
     url: InfosUser[];
 }
 
-export default function Followers() {
+export default function Following() {
 
-    const [followers, setFollowers] = useState<Followers[]>([])
+    const [following, setFollowing] = useState<Followers[]>([])
 
     let { login } = useParams()
 
     useEffect(() => {
 
         async function getFollowers() {
-            const response = await axios.get<Followers[]>(`https://api.github.com/users/${login}/followers`)
-            setFollowers(response.data)
+            const response = await axios.get<Followers[]>(`https://api.github.com/users/${login}/following`)
+            setFollowing(response.data)
         }
 
         getFollowers()
@@ -35,14 +35,17 @@ export default function Followers() {
         <Container>
             <Content>
 
-                <FollowersCard>
+                <FollowingCard>
 
-                    <h1>Seguidores</h1>
+                    <h1>Seguindo</h1>
 
-                    {followers.length <= 0 ? <p className='warning' >{login} não possui nenhum seguidor</p> : ''}
+                    {following.length <= 0 ? <p className='warning' >{login} não segue ninguém</p> : ''}
 
-                    {followers.map((value) => (
-                        <Follower key={value.id} >
+                    {following.map((value) => (
+                        <Followingg key={value.id} >
+
+                            
+
                             <img src={value.avatar_url} alt="" />
 
                             <div className='infos'>
@@ -58,10 +61,10 @@ export default function Followers() {
                                     <div>< PlaceIcon /> Internet</div>
                                 </footer>
                             </div>
-                        </Follower>
+                        </Followingg>
                     ))}
 
-                </FollowersCard>
+                </FollowingCard>
 
             </Content>
         </Container>

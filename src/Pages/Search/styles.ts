@@ -112,12 +112,6 @@ export const CardInfos = styled.div`
     
 `
 
-export const Warning = styled.p`
-    font-size: 1.4rem;
-    color: var(--username);
-    font-family: 'Poppins', sans-serif;
-`
-
 export const SearchIcon = styled(Search)`
     width: 36px;
     color: var(--blue);

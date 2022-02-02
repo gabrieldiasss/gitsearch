@@ -10,8 +10,7 @@ import {
     Carditem,
     Img,
     CardInfos,
-    SearchIcon,
-    Warning
+    SearchIcon
 } from './styles'
 
 import { toast } from 'react-toastify'
@@ -82,7 +81,7 @@ export default function Search() {
                                 <CardInfos>
                                     <div>
                                         <Link to={`profile/${users.login}`}>{users.name}</Link>
-                                        <span>{users.login}</span>
+                                        <Link to={`profile/${users.login}`}><span>{users.login}</span></Link>
                                     </div>
 
                                     <div>
@@ -96,7 +95,7 @@ export default function Search() {
                     )}
 
                     {inputSearch === "" && (
-                        <Warning>Pesquise por algum usuário</Warning>
+                        <p className='warning' >Pesquise por algum usuário</p>
                     )}
 
                 </Cards>

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { useGitUser } from '../../hooks/useGitUser'
 import { User } from '../../types'
 import { Container, InfosAccount, PersonalInformation, TimeIcon, LinkIcon, PlaceIcon, BusinessIcon, Followers, PeopleIcon, TwitterIcon } from './styles'
 
@@ -19,7 +18,6 @@ export default function UserInfos() {
 
     const [userInfos, setUserInfos] = useState<InfosUser>({} as InfosUser)
 
-    const { users, setUsers } = useGitUser()
 
     let { login } = useParams()
 
@@ -44,8 +42,7 @@ export default function UserInfos() {
                 )}
                 
                 <Followers>
-                    <PeopleIcon />
-                    <Link to={`followers`} >{userInfos.followers} seguidores </Link>• {userInfos.following} Seguindo
+                <Link to={`followers`} ><PeopleIcon /> {userInfos.followers} seguidores</Link>•<Link to={`following`} >{userInfos.following} Seguindo</Link>
                 </Followers>
             </InfosAccount>
 

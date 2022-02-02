@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -79,6 +79,14 @@ export const GlobalStyles = createGlobalStyle`
 
         font-weight: 600;
         box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.20);
+    }
+
+    .warning {
+        font-size: 1.4rem;
+        color: var(--username);
+        font-family: 'Poppins', sans-serif;
+
+        margin-top: ;
     }
 
 `

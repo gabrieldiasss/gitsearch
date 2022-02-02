@@ -4,6 +4,7 @@ import InfoRepos from './Pages/InfoRepos'
 import Search from './Pages/Search'
 import Profile from './Pages/Profile'
 import Followers from './Pages/Followers'
+import Following from './Pages/Following'
 
 export default function RoutesPages() {
 
@@ -14,6 +15,7 @@ export default function RoutesPages() {
                 <Route path="inforepos" element={<InfoRepos />} />
                 <Route path="profile/:login" element={<Profile />} />
                 <Route path="profile/:login/followers" element={<Followers />} />
+                <Route path="profile/:login/following" element={<Following />} />
             </Routes>
         </BrowserRouter>
     )

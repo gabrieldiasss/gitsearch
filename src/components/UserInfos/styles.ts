@@ -53,6 +53,10 @@ export const Followers = styled.div`
 
     margin-top: 3rem;
     cursor: pointer;
+
+    a {
+        color: var(--text);
+    }
 `
 
 export const PersonalInformation = styled.div`
