@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useGitUser } from '../../hooks/useGitUser'
 import { User } from '../../types'
 import { Container, InfosAccount, PersonalInformation, TimeIcon, LinkIcon, PlaceIcon, BusinessIcon, Followers, PeopleIcon, TwitterIcon } from './styles'
 
-interface InfosUser extends User {
+export interface InfosUser extends User {
     company: string;
     location: string;
     blog: string;
@@ -45,7 +45,7 @@ export default function UserInfos() {
                 
                 <Followers>
                     <PeopleIcon />
-                    {userInfos.followers} seguidores • {userInfos.following} Seguindo
+                    <Link to={`followers`} >{userInfos.followers} seguidores </Link>• {userInfos.following} Seguindo
                 </Followers>
             </InfosAccount>
 

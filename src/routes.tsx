@@ -13,7 +13,7 @@ export default function RoutesPages() {
                 <Route path="/" element={<Search />} />
                 <Route path="inforepos" element={<InfoRepos />} />
                 <Route path="profile/:login" element={<Profile />} />
-                <Route path="profile/followers" element={<Followers />} />
+                <Route path="profile/:login/followers" element={<Followers />} />
             </Routes>
         </BrowserRouter>
     )

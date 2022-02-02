@@ -1,7 +1,35 @@
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect, useState } from 'react'
+
+import { Link, useParams } from 'react-router-dom'
+import { InfosUser } from '../../components/UserInfos'
+
 import { Container, Content, FollowersCard, Follower, PlaceIcon, CompanyIcon } from './styles'
 
+interface Followers {
+    id: string;
+    login: string;
+    avatar_url: string;
+    url: InfosUser[];
+}
+
 export default function Followers() {
+
+    const [followers, setFollowers] = useState<Followers[]>([])
+    const [users, setUsers] = useState()
+
+    let { login } = useParams()
+
+    useEffect(() => {
+
+        async function getFollowers() {
+            const response = await axios.get<Followers[]>(`https://api.github.com/users/${login}/followers`)
+            setFollowers(response.data)
+        }
+
+        getFollowers()
+
+    }, [])
 
     return (
 
@@ -12,26 +40,28 @@ export default function Followers() {
 
                     <h1>Seguidores</h1>
 
-                    <Follower>
-                        <img src="https://avatars.githubusercontent.com/u/71296002?v=4" alt="" />
+                    {followers.map((value) => (
+                        <Follower key={value.id} >
+                            <img src={value.avatar_url} alt="" />
 
-                        <div className='infos' >
-                            <header>
-                                <Link to={`profile/followers`} >gabrieldiasss</Link>
-                                <span>aplus-developer</span>
-                            </header>
+                            <div className='infos'>
+                                <header>
+                                    <Link to={`/profile/${value.login}`}>{value.login}</Link>
+                                    <span>{value.login}</span>
+                                </header>
 
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                                <p>{value.url}</p>
 
-                            <footer>
-                                <div> <CompanyIcon/>@aplus-framework</div>
-                                <div>< PlaceIcon/> Internet</div>
-                            </footer>
-                        </div>
-                    </Follower>
+                                <footer>
+                                    <div><CompanyIcon /></div>
+                                    <div>< PlaceIcon /> Internet</div>
+                                </footer>
+                            </div>
+                        </Follower>
+                    ))}
 
                 </FollowersCard>
-                
+
             </Content>
         </Container>
 
