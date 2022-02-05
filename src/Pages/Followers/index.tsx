@@ -2,7 +2,8 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 import { Link, useParams } from 'react-router-dom'
-import { InfosUser } from '../../components/UserInfos'
+import { InfosUser } from '../../types'
+import { api } from '../../services/api'
 
 import { Container, Content, FollowersCard, Follower, PlaceIcon, CompanyIcon } from './styles'
 
@@ -22,7 +23,7 @@ export default function Followers() {
     useEffect(() => {
 
         async function getFollowers() {
-            const response = await axios.get<Followers[]>(`https://api.github.com/users/${login}/followers`)
+            const response = await api.get<Followers[]>(`${login}/followers`)
             setFollowers(response.data)
         }
 

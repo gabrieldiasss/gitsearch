@@ -1,8 +1,9 @@
-import axios from 'axios'
+
 import { useEffect, useState } from 'react'
 
 import { Link, useParams } from 'react-router-dom'
-import { InfosUser } from '../../components/UserInfos'
+import { api } from '../../services/api'
+
 
 import { Container, Content, FollowingCard, Followingg, PlaceIcon, CompanyIcon } from './styles'
 
@@ -10,7 +11,6 @@ interface Followers {
     id: string;
     login: string;
     avatar_url: string;
-    url: InfosUser[];
 }
 
 export default function Following() {
@@ -22,13 +22,23 @@ export default function Following() {
     useEffect(() => {
 
         async function getFollowers() {
-            const response = await axios.get<Followers[]>(`https://api.github.com/users/${login}/following`)
+            const response = await api.get<Followers[]>(`${login}/following`)
             setFollowing(response.data)
         }
 
         getFollowers()
 
     }, [])
+
+     /* useEffect(() => {
+ 
+         following.map(value => axios.get(`https://api.github.com/users/${value.login}`).then((response) => {
+ 
+             console.log({...response.data, following})
+    
+         }))
+ 
+     }, [following]) */
 
     return (
 
@@ -41,26 +51,25 @@ export default function Following() {
 
                     {following.length <= 0 ? <p className='warning' >{login} não segue ninguém</p> : ''}
 
-                    {following.map((value) => (
-                        <Followingg key={value.id} >
-
-                            
+                    {following.map((value, key) => (
+                        <Followingg key={key}>
 
                             <img src={value.avatar_url} alt="" />
 
-                            <div className='infos'>
+                            <div className='infos' key={key} >
                                 <header>
                                     <Link to={`/profile/${value.login}`}>{value.login}</Link>
                                     <span>{value.login}</span>
                                 </header>
 
-                                <p>{value.url}</p>
+                                <p>{value.login}</p>
 
                                 <footer>
                                     <div><CompanyIcon /></div>
                                     <div>< PlaceIcon /> Internet</div>
                                 </footer>
                             </div>
+
                         </Followingg>
                     ))}
 

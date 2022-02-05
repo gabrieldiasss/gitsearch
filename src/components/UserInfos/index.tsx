@@ -1,28 +1,19 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { User } from '../../types'
+import { useEffect } from 'react'
+import { Link } from 'react-router-dom'
+import { api } from '../../services/api'
+import { InfosUser } from '../../types'
 import { Container, InfosAccount, PersonalInformation, TimeIcon, LinkIcon, PlaceIcon, BusinessIcon, Followers, PeopleIcon, TwitterIcon } from './styles'
 
-export interface InfosUser extends User {
-    company: string;
-    location: string;
-    blog: string;
-    followers: number;
-    following: number;
-    created_at: string;
-    twitter_username: string;
+interface UserInfosProps {
+    login: string | undefined;
+    userInfos: InfosUser;
+    setUserInfos: React.Dispatch<React.SetStateAction<InfosUser>>;
 }
 
-export default function UserInfos() {
-
-    const [userInfos, setUserInfos] = useState<InfosUser>({} as InfosUser)
-
-
-    let { login } = useParams()
+export default function UserInfos({ login, userInfos, setUserInfos }: UserInfosProps) {
 
     useEffect(() => {
-        axios.get(`https://api.github.com/users/${login}`)
+        api.get(`${login}`)
             .then((response) => {
                 setUserInfos(response.data)
             }).catch(err => {

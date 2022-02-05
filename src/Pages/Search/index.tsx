@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { 
     Container,
@@ -17,6 +16,7 @@ import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useGitUser } from '../../hooks/useGitUser';
 import { Link } from 'react-router-dom';
+import { api } from '../../services/api';
 
 export default function Search() {
 
@@ -29,7 +29,7 @@ export default function Search() {
     async function Search(search: string) {
 
         try {
-            const response = await axios.get(`https://api.github.com/users/${search}`)
+            const response = await api.get(`${search}`)
             setUsers(response.data)
             setUsersSearch(true)
 

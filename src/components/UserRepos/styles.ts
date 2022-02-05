@@ -9,6 +9,18 @@ export const Container = styled.section`
     box-shadow: 3px 3px 20px rgba(0,0,0, 0.20);
 
     padding: 3rem 4rem;
+
+    max-height: 700px;
+    overflow: auto;
+
+    ::-webkit-scrollbar  {
+        width: 5px;
+        border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--placeholder);
+    }
 `
 
 export const Header = styled.header`
@@ -75,7 +87,7 @@ export const Repos = styled.main`
         margin-left: 16px;
     }
 
-    p {
+    > p {
         font-size: 1.2rem;
         margin-top: 1rem;
     }
@@ -83,5 +95,23 @@ export const Repos = styled.main`
 `
 
 export const Language = styled.div`
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
 
+    p {
+        margin-left: 8px;
+    }
 `
+
+interface Background {
+    background: string;
+}
+
+export const LanguageColor = styled.div<Background>`
+    background: ${(props) => props.background};
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+`
+
