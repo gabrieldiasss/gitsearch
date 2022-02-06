@@ -1,10 +1,13 @@
+import NameRepo from "../../components/RepoHeader";
+import UniqueRepo from "../../components/UniqueRepo";
 
 export default function InfoRepos () {
-
+    
     return (
 
         <>
-            <h1>Page Info Repos</h1>
+            <NameRepo />
+            <UniqueRepo />
         </>
     )
 }

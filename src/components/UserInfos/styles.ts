@@ -10,7 +10,7 @@ import { Twitter } from '@styled-icons/boxicons-logos/Twitter'
 export const Container = styled.aside`
     background-color: #fff;
     
-    padding: 2rem 4rem;
+    padding: 2rem;
     border-radius: 7px;
     box-shadow: 3px 3px 20px rgba(0,0,0, 0.20);
 

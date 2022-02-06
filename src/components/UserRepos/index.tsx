@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import { api } from '../../services/api'
 import { InfosUser } from '../../types';
-import { Container, Header, Repos, Language, LanguageColor } from './styles'
+import { Container, Header, Repository, Language, LanguageColor } from './styles'
 
 const GitHubColors = require('github-colors');
 
@@ -18,10 +19,12 @@ interface Repos {
     language: string;
 }
 
-
 export default function UserRepos({ login, userInfos }: UserReposProps) {
 
+    const [search, setSearch] = useState('')
+
     const [repos, setRepos] = useState<Repos[]>([])
+
 
     useEffect(() => {
         api.get(`${login}/repos`).then(response => {
@@ -30,6 +33,9 @@ export default function UserRepos({ login, userInfos }: UserReposProps) {
 
     }, [])
 
+    const lowerSearch = search.toLowerCase()
+
+    const searchRepos = repos.filter((repo: Repos) => repo.name.includes(lowerSearch))
 
     return (
         <Container>
@@ -41,45 +47,32 @@ export default function UserRepos({ login, userInfos }: UserReposProps) {
 
                 <div className='inputs' >
                     <div>
-                        <input type="text" placeholder='Procurar repositório' />
-                    </div>
-
-                    <div>
-                        <select name="select-types" >
-                            <option>Typescript</option>
-                            <option>Javascript</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <select name="select-languages" >
-                            <option>Typescript</option>
-                            <option>Javascript</option>
-                        </select>
+                        <input type="text"
+                            placeholder='Procurar repositório'
+                            onChange={(e) => setSearch(e.target.value)}
+                            value={search}
+                        />
                     </div>
                 </div>
             </Header>
 
-            {repos.map((value) => (
-                <Repos key={value.id} >
+            {searchRepos.map((value) => (
+                <Repository key={value.id} >
                     <div>
-                        <a href='#'>{value.name}</a>
+                        <Link to={`${value.name}`} >{value.name}</Link>
                         <span>{value.visibility}</span>
                     </div>
                     <p>{value.description}</p>
                     <Language>
-                        <LanguageColor 
+                        <LanguageColor
                             background={GitHubColors.get(value.language)?.color}
                         >
 
                         </LanguageColor>
                         <p>{value.language}</p>
                     </Language>
-                </Repos>
+                </Repository>
             ))}
         </Container>
     )
 }
-
-/* style={{ backgroundColor: }} `#` */
-/* style={{ background: `${console.log()}` }}  */

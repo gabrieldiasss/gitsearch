@@ -10,7 +10,7 @@ export const Container = styled.section`
 
     padding: 3rem 4rem;
 
-    max-height: 700px;
+    height: 700px;
     overflow: auto;
 
     ::-webkit-scrollbar  {
@@ -53,7 +53,7 @@ export const Header = styled.header`
 
         gap: 1rem;
 
-        select, input {
+        input  {
             box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.1);
 
             height: 3rem;
@@ -62,14 +62,14 @@ export const Header = styled.header`
         }
 
         input {
-            width: 100%;
+            width: 150%;
         }
         
     }
 
 `
 
-export const Repos = styled.main`
+export const Repository = styled.ul`
 
     margin-top: 2rem;
 
