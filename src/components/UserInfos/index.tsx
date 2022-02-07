@@ -66,7 +66,7 @@ export default function UserInfos({ login, userInfos, setUserInfos }: UserInfosP
                 {userInfos.twitter_username && (
                     <div>
                         <TwitterIcon />
-                        <a href={`https://twitter.com/${userInfos.twitter_username}`} >{userInfos.twitter_username}</a>
+                        <a href={`https://twitter.com/${userInfos.twitter_username}`}>{userInfos.twitter_username}</a>
                     </div>
                 )}
 

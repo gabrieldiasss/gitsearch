@@ -58,6 +58,10 @@ export const GlobalStyles = createGlobalStyle`
         font-weight: 500;
     }
 
+    li {
+        list-style: none;
+    }
+
     a:hover {
         text-decoration: underline;
     }
@@ -86,7 +90,7 @@ export const GlobalStyles = createGlobalStyle`
         color: var(--username);
         font-family: 'Poppins', sans-serif;
 
-        margin-top: ;
+        
     }
 
 `

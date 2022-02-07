@@ -16,3 +16,21 @@ export interface InfosUser extends User {
     created_at: string;
     twitter_username: string;
 }
+
+interface OwnerRepo {
+    login: string;
+}
+
+export interface IUniqueRepo {
+    name: string;
+    description: string;
+    stargazers_count: number;
+    homepage: string;
+    visibility: string;
+    owner: OwnerRepo;
+} 
+
+export interface Contributors {
+    id: number;
+    avatar_url: string;
+}

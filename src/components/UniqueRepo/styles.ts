@@ -5,21 +5,19 @@ import { StarFill } from '@styled-icons/bootstrap/StarFill'
 export const Container = styled.section`
     
     background-color: #fff;
-    width: 50%;
-
-    margin: 4rem auto 0;
-
+    
     box-shadow: 3px 3px 10px rgba(0,0,0, 0.20);
 
     border-radius: 5px;
-`
-
-export const Content = styled.div`
 
     padding: 2rem 4rem;
 
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 800px;
+    min-width: 700px;
+`
+
+export const Content = styled.div`
+    
 `
 
 export const Header = styled.header`
@@ -53,16 +51,37 @@ export const Infos = styled.main`
         gap: 8px;
     }
 
-    .languages {
-        margin-top: 1rem;
-
-        div {
-            margin-top: 0.6rem;
-        }
-    }
-
     .contributors {
         margin-top: 1rem;
+        word-wrap: break-word;
+
+        span {
+            background-color: var(--background-repos);
+            padding: 12px;
+            margin-left: 12px;
+            border-radius: 20px;
+        }
+
+        ul {
+            display: flex;
+            gap: 16px;
+            overflow-y: auto;
+
+            ::-webkit-scrollbar {
+                height: 10px;
+                
+            }
+
+            ::-webkit-scrollbar-thumb {
+                background: var(--background-repos);
+                border-radius: 10px;
+            }
+        }
+
+        p {
+            word-wrap: break-word;
+            
+        }
 
         img {
             width: 40px;
@@ -70,6 +89,7 @@ export const Infos = styled.main`
 
             margin-top: 0.6rem;
             border-radius: 50%;
+            gap: 32px;
         }
     }
 

@@ -1,7 +1,16 @@
+
+import { useState } from 'react'
+import { Contributors, IUniqueRepo } from '../../types'
 import { Container, Content, Header, Infos, StarIcon } from './styles'
 
+interface UniqueRepoProps {
+    uniqueRepo: IUniqueRepo;
+    contributors: Contributors[];
+}
 
-export default function UniqueRepo() {
+export default function UniqueRepo({ uniqueRepo, contributors }: UniqueRepoProps) {
+
+    const [viewMore, setViewMore] = useState()
 
     return (
         <Container>
@@ -11,31 +20,29 @@ export default function UniqueRepo() {
                 </Header>
 
                 <Infos>
-                    <h2>gabrieljoseph</h2>
+                    <h2>{uniqueRepo?.name}</h2>
 
-                    <p>Página de vendas de um info produto existente
-                        (Freelance que eu fiz)</p>
+                    <p>{uniqueRepo?.description}</p>
 
-                    <a href='#'>gabrieljoseph.vercel.app</a>
+                    <a href={uniqueRepo?.homepage} target={`_blank`} >{uniqueRepo?.homepage}</a>
 
                     <div className='stars' >
                         <StarIcon />
-                        <span>0 estrelas</span>
-                    </div>
-
-                    <div className='languages' >
-                        <strong>Linguagens:</strong>
-                        <div>
-                            TypeScript
-                        </div>
-                        
+                        <span>{uniqueRepo.stargazers_count > 1 ? ` ${uniqueRepo.stargazers_count} Estrelas` : `${uniqueRepo.stargazers_count} Estrela`}</span>
                     </div>
 
                     <div className='contributors'>
-                        <strong>Contribuidores: </strong>
-                        <div>
-                            <img src="https://avatars.githubusercontent.com/u/71296002?v=4" alt="" />
-                        </div>
+                        <strong>Contribuidores:</strong>
+                        <span>{contributors.length}</span>
+
+                        <ul>
+                            {contributors.map((value) => (
+                                <p key={value.id}  >
+                                    <img src={value.avatar_url} alt="" />
+                                </p>
+                            ))}
+
+                        </ul>
                     </div>
                 </Infos>
             </Content>

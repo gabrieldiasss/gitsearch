@@ -14,7 +14,7 @@ export const Container = styled.aside`
     border-radius: 7px;
     box-shadow: 3px 3px 20px rgba(0,0,0, 0.20);
 
-    width: 600px;
+    width: 700px;
 `
 
 export const InfosAccount = styled.div`

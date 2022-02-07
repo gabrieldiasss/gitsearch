@@ -1,12 +1,18 @@
+import { Link } from 'react-router-dom'
+import { IUniqueRepo } from '../../types'
 import { Container } from './styles'
 
-export default function NameRepo() {
+interface UniqueRepoProps {
+    uniqueRepo: IUniqueRepo;
+}
+
+export default function NameRepo({ uniqueRepo }: UniqueRepoProps) {
 
     return (
         <Container>
             <div>
-                <a href="#" >gabrieldiasss/gabrieljoseph</a>
-                <span>Public</span>
+                <Link to={`/profile/${uniqueRepo?.owner?.login}`}>{uniqueRepo?.owner?.login} </Link> / <Link to={``}>{uniqueRepo.name}</Link>
+                <span>{uniqueRepo.visibility}</span>
             </div>
         </Container>
     )

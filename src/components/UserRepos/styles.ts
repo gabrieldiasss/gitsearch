@@ -10,7 +10,7 @@ export const Container = styled.section`
 
     padding: 3rem 4rem;
 
-    height: 700px;
+    max-height: 700px;
     overflow: auto;
 
     ::-webkit-scrollbar  {
