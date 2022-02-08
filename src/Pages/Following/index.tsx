@@ -30,16 +30,6 @@ export default function Following() {
 
     }, [])
 
-     /* useEffect(() => {
- 
-         following.map(value => axios.get(`https://api.github.com/users/${value.login}`).then((response) => {
- 
-             console.log({...response.data, following})
-    
-         }))
- 
-     }, [following]) */
-
     return (
 
         <Container>
@@ -59,15 +49,7 @@ export default function Following() {
                             <div className='infos' key={key} >
                                 <header>
                                     <Link to={`/profile/${value.login}`}>{value.login}</Link>
-                                    <span>{value.login}</span>
                                 </header>
-
-                                <p>{value.login}</p>
-
-                                <footer>
-                                    <div><CompanyIcon /></div>
-                                    <div>< PlaceIcon /> Internet</div>
-                                </footer>
                             </div>
 
                         </Followingg>

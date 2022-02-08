@@ -35,6 +35,12 @@ export const Infos = styled.main`
     
     margin-top: 1rem;
 
+    h2 {
+        a {
+            color: var(--text);
+        }
+    }
+
     p {
         margin: 1rem 0;
     }

@@ -1,5 +1,4 @@
 
-
 import { Header, Content } from './styles'
 
 import Logo from '../../images/logo.svg'

@@ -53,7 +53,6 @@ export default function UserInfos({ login, userInfos, setUserInfos }: UserInfosP
                     </div>
                 )}
 
-
                 {userInfos.blog && (
                     <div className='link' >
                         <LinkIcon />

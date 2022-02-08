@@ -1,5 +1,4 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import { Link, useParams } from 'react-router-dom'
 import { InfosUser } from '../../types'
@@ -11,7 +10,7 @@ interface Followers {
     id: string;
     login: string;
     avatar_url: string;
-    url: InfosUser[];
+    url: InfosUser;
 }
 
 export default function Followers() {
@@ -49,15 +48,7 @@ export default function Followers() {
                             <div className='infos'>
                                 <header>
                                     <Link to={`/profile/${value.login}`}>{value.login}</Link>
-                                    <span>{value.login}</span>
                                 </header>
-
-                                <p>{value.url}</p>
-
-                                <footer>
-                                    <div><CompanyIcon /></div>
-                                    <div>< PlaceIcon /> Internet</div>
-                                </footer>
                             </div>
                         </Follower>
                     ))}

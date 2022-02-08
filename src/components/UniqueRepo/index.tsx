@@ -1,16 +1,14 @@
 
-import { useState } from 'react'
 import { Contributors, IUniqueRepo } from '../../types'
 import { Container, Content, Header, Infos, StarIcon } from './styles'
 
 interface UniqueRepoProps {
     uniqueRepo: IUniqueRepo;
     contributors: Contributors[];
+    login: string | undefined;
 }
 
-export default function UniqueRepo({ uniqueRepo, contributors }: UniqueRepoProps) {
-
-    const [viewMore, setViewMore] = useState()
+export default function UniqueRepo({ uniqueRepo, contributors, login }: UniqueRepoProps) {
 
     return (
         <Container>
@@ -20,7 +18,7 @@ export default function UniqueRepo({ uniqueRepo, contributors }: UniqueRepoProps
                 </Header>
 
                 <Infos>
-                    <h2>{uniqueRepo?.name}</h2>
+                    <h2><a href={`https://github.com/${login}/${uniqueRepo.name}`} target={`_blank`} >{uniqueRepo?.name}</a></h2>
 
                     <p>{uniqueRepo?.description}</p>
 

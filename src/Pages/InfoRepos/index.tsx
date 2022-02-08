@@ -41,7 +41,7 @@ export default function InfoRepos() {
             <NameRepo uniqueRepo={uniqueRepo} />
 
             <Container>
-                <UniqueRepo uniqueRepo={uniqueRepo} contributors={contributors} />
+                <UniqueRepo uniqueRepo={uniqueRepo} contributors={contributors} login={login} />
             </Container>
             
         </>

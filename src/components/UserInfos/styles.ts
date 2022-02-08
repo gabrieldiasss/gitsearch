@@ -15,6 +15,7 @@ export const Container = styled.aside`
     box-shadow: 3px 3px 20px rgba(0,0,0, 0.20);
 
     width: 700px;
+    max-height: 75rem;
 `
 
 export const InfosAccount = styled.div`
