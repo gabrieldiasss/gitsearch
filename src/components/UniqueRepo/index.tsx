@@ -1,4 +1,5 @@
 
+import { isValidElement } from 'react'
 import { Contributors, IUniqueRepo } from '../../types'
 import { Container, Content, Header, Infos, StarIcon } from './styles'
 
@@ -9,6 +10,14 @@ interface UniqueRepoProps {
 }
 
 export default function UniqueRepo({ uniqueRepo, contributors, login }: UniqueRepoProps) {
+
+    function formatUrlHttp(url: string) {
+        if (/(http(s?)):\/\//.test(url)) {
+            return url;
+        }
+
+        return `https://${url}`;
+    }
 
     return (
         <Container>
@@ -22,7 +31,7 @@ export default function UniqueRepo({ uniqueRepo, contributors, login }: UniqueRe
 
                     <p>{uniqueRepo?.description}</p>
 
-                    <a href={uniqueRepo?.homepage} target={`_blank`} >{uniqueRepo?.homepage}</a>
+                    <a href={formatUrlHttp(uniqueRepo?.homepage)} target={`_blank`} >{uniqueRepo?.homepage}</a>
 
                     <div className='stars' >
                         <StarIcon />

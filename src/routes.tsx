@@ -12,7 +12,6 @@ export default function RoutesPages() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Search />} />
-                <Route path="inforepos" element={<InfoRepos />} />
                 <Route path="profile/:login" element={<Profile />} />
                 <Route path="profile/:login/followers" element={<Followers />} />
                 <Route path="profile/:login/following" element={<Following />} />

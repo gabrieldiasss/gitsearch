@@ -12,6 +12,14 @@ interface UserInfosProps {
 
 export default function UserInfos({ login, userInfos, setUserInfos }: UserInfosProps) {
 
+    function formatUrlHttp(url: string) {
+        if (/(http(s?)):\/\//.test(url)) {
+            return url;
+        }
+
+        return `https://${url}`;
+    }
+
     useEffect(() => {
         api.get(`${login}`)
             .then((response) => {
@@ -56,7 +64,7 @@ export default function UserInfos({ login, userInfos, setUserInfos }: UserInfosP
                 {userInfos.blog && (
                     <div className='link' >
                         <LinkIcon />
-                        <a href={userInfos.blog} >
+                        <a href={formatUrlHttp(userInfos.blog)} >
                             {userInfos.blog?.length > 30 ? userInfos.blog?.substring(0, 30) + '...' : userInfos.blog}
                         </a>
                     </div>
