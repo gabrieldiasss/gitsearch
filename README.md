@@ -3,7 +3,7 @@
 <br />
 <p align="center">
  
-  <img src="https://user-images.githubusercontent.com/71296002/159123225-64da0727-a72a-4a7a-a94f-d185e352b632.png" />
+  <img src="https://user-images.githubusercontent.com/71296002/161408410-3e2d9320-ebc5-4d45-b628-9e0885f7d3a3.png" />
 
 <!-- ABOUT THE PROJECT -->
 # Sobre o projeto
